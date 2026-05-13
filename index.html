@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphiste Service</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+--bg:#0b0b10;
+--card:#141420;
+--primary:#d4a200; /* 🔥 JAUNE FONCÉ MODIFIÉ */
+--text:#ffffff;
+--muted:#b3b3c6;
+--glow:rgba(212,162,0,0.4);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth}
+
+body{background:var(--bg);color:var(--text)}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#0b0b10;
+z-index:1000;
+border-bottom:1px solid #222;
+}
+
+.logo{color:var(--primary);font-weight:800;}
+
+nav a{
+color:white;
+margin-left:15px;
+text-decoration:none;
+}
+
+nav a:hover{color:var(--primary)}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:white;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+position:fixed;
+top:0;
+left:-100%;
+width:75%;
+height:100vh;
+background:#141420;
+padding:60px 20px;
+display:flex;
+flex-direction:column;
+transition:0.4s;
+z-index:9999;
+}
+
+.mobile-menu a{
+color:white;
+padding:15px 0;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-menu a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle,#141420,#0b0b10);
+}
+
+.hero h1{font-size:55px}
+.hero span{color:var(--primary)}
+
+.btn{
+padding:12px 25px;
+background:linear-gradient(135deg,#d4a200,#b88900);
+border:none;
+border-radius:8px;
+cursor:pointer;
+color:#000;
+}
+
+/* SECTIONS */
+section{padding:80px 10%}
+h2{text-align:center;font-size:35px;margin-bottom:40px}
+
+/* ABOUT */
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.about-card{
+background:linear-gradient(145deg,#1a1a2e,#111118);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(212,162,0,0.2);
+}
+
+.about-card h3{color:var(--primary)}
+.about-card p{color:var(--muted)}
+
+/* SERVICES */
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+width:200px;
+border-radius:12px;
+text-align:center;
+border:1px solid rgba(212,162,0,0.2);
+}
+
+/* PORTFOLIO */
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+}
+
+.portfolio img{
+width:100%;
+border-radius:10px;
+}
+
+/* CONTACT */
+#contact form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+#contact input,
+#contact textarea{
+padding:12px;
+border:none;
+border-radius:8px;
+background:#141420;
+color:white;
+}
+
+#contact textarea{min-height:120px}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+padding:15px;
+border-radius:50%;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+nav{display:none}
+.hamburger{display:block}
+.about-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">GRAPHISTE SERVICE</div>
+
+<nav>
+<a href="#about">À propos</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#pricing">Équipe</a>
+<a href="#payment">Paiement</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+<a href="#about" onclick="toggleMenu()">À propos</a>
+<a href="#services" onclick="toggleMenu()">Services</a>
+<a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+<a href="#Équipe" onclick="toggleMenu()">Équipe</a>
+<a href="#payment" onclick="toggleMenu()">Paiement</a>
+<a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>Graphiste <span>Service</span></h1>
+<p>Design moderne & affiches professionnelles</p>
+<button class="btn" onclick="order('Service',10)">Commander</button>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 data-aos="fade-up">À PROPOS</h2>
+
+<div class="about-grid">
+<div class="about-card" data-aos="fade-up">
+<h3>Qui nous sommes</h3>
+<p>Graphiste Service est une équipe spécialisée dans le design moderne.</p>
+</div>
+
+<div class="about-card" data-aos="fade-up">
+<h3>Notre vision</h3>
+<p>Devenir une référence du design en Afrique.</p>
+</div>
+
+<div class="about-card" data-aos="fade-up">
+<h3>Objectif</h3>
+<p>Créer des designs puissants et professionnels.</p>
+</div>
+
+<div class="about-card" data-aos="fade-up">
+<h3>Méthode</h3>
+<p>Analyse → Création → Livraison</p>
+</div>
+
+
+<div class="about-card" data-aos="fade-up">
+<h3>Localisation</h3>
+<p>Kabinda - Mbuji-Mayi - Kinshasa</p>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+<div class="cards">
+<div class="card">Affiches Publicitaires 15$</div>
+<div class="card">Logos 10$</div>
+<div class="card">Flyers 5$</div>
+<div class="card">Branding 10$</div>
+<div class="card">Bannières Réseaux 10$</div>
+</div>
+
+<!-- 🔗 LIEN AJOUTÉ -->
+<div style="text-align:center;margin-top:30px;">
+<a href="https://wa.me/243855222581?text=Je%20cherche%20un%20design" 
+style="color:#d4a200;text-decoration:none;font-weight:bold;">
+👉 Vous cherchez un design ? Cliquez ici
+</a>
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+<h2>Portfolio</h2>
+<div class="portfolio">
+<img src="IMG-20260509-WA0081.jpg">
+<img src="IMG-20260512-WA0043.jpg">
+<img src="IMG-20260511-WA0040.jpg">
+<img src="IMG-20260502-WA0053.jpg">
+<img src="IMG-20260501-WA0114.jpg">
+<img src="IMG-20260502-WA0052.jpg">
+<img src="IMG-20260512-WA0053.jpg">
+<img src="IMG-20260117-WA0133.jpg">
+</div>
+</section>
+
+<!-- PRIX -->
+<section id="pricing">
+<h2>Équipe</h2>
+<div class="cards">
+<div class="card">Jean lobo</div>
+<div class="card">Mardochee Ngoyi</div>
+</div>
+</section>
+
+<!-- 💳 PAIEMENT AJOUTÉ -->
+<section id="payment">
+<h2>Paiement Mobile Money</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Orange Money</h3>
+<p>0855222581</p>
+<p>Mardochée Ngoyi</p>
+</div>
+
+<div class="card">
+<h3>M-Pesa</h3>
+<p>0815351324</p>
+</div>
+
+<div class="card">
+<h3>Airtel Money</h3>
+<p>0992633368</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 data-aos="fade-up">Contact</h2>
+
+<form onsubmit="sendContact(event)">
+<input type="text" id="name" placeholder="Ton nom" required>
+<input type="email" id="email" placeholder="Ton email" required>
+<textarea id="message" placeholder="Ton message" required></textarea>
+<button class="btn" type="submit">Envoyer</button>
+</form>
+</section>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/243855222581">💬</a>
+
+<script>
+function toggleMenu(){
+let m=document.getElementById("mobileMenu");
+m.style.left=(m.style.left==="0px")?"-100%":"0px";
+}
+
+function order(p,x){
+window.open("https://wa.me/243855222581?text="+encodeURIComponent("Commande: "+p+" "+x+"$"));
+}
+
+function sendContact(event){
+event.preventDefault();
+
+let n=document.getElementById("name").value;
+let e=document.getElementById("email").value;
+let m=document.getElementById("message").value;
+
+let text=`Nom: ${n}\nEmail: ${e}\nMessage: ${m}`;
+
+window.open("https://wa.me/243855222581?text="+encodeURIComponent(text));
+}
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
